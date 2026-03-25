@@ -17,6 +17,15 @@ Ein grosser Teil von PVC- und Kunststoffabfällen aus Haushalten wird nicht recy
 ## MVP (Kernfunktionen)
 Das MVP ist eine einfache Webplattform, auf der Nutzer Fotos von PVC-Gegenständen hochladen, eine Kategorie auswählen und ein geschätztes Gewicht angeben können. Basierend auf Richtwerten berechnet das System automatisch Punkte, die als digitale Belohnung dienen. Ein einfaches Dashboard zeigt die gesammelten Daten und ermöglicht eine erste Auswertung des Materialflusses.
 
+## Design-Anforderungen
+Das Design von CycleMarket orientiert sich an den 10 Design-Prinzipien von Dieter Rams.
+
+- Die App soll nachhaltiges Verhalten unterstützen, indem sie den Nutzer aktiv zur Abgabe von PVC motiviert und den Impact sichtbar macht.
+- Die Benutzeroberfläche ist auf das Wesentliche reduziert und fokussiert sich auf den Kernprozess: Gegenstand erfassen und Punkte erhalten.
+- Das Design richtet sich an eine breite, moderne Zielgruppe und ist einfach verständlich sowie niedrigschwellig zugänglich.
+- Die App wirkt ehrlich und vertrauenswürdig, insbesondere in Bezug auf das Punktesystem und die kommunizierte Umweltwirkung.
+
+
 ---
 
 ## Circular Flow
