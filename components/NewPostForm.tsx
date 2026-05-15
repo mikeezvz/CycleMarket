@@ -30,23 +30,26 @@ export default function NewPostForm({ onCreate }: Props) {
   }
 
   return (
-    <div className="bg-white p-4 rounded shadow">
-      <h3 className="font-semibold mb-2">Create a new post</h3>
+    <div className="bg-white p-4 rounded shadow ring-1 ring-cycle-50">
+      <h3 className="text-2xl font-bold mb-3 text-cycle-700">Create a new post</h3>
 
-      <div className="mb-2">
+      <div className="mb-3">
         <label className="block text-sm text-gray-700">Photo</label>
-        <input type="file" accept="image/*" onChange={handleFile} className="mt-2" />
-        {preview && <img src={preview} alt="preview" className="mt-2 h-24 object-contain" />}
+        <div className="mt-2 flex items-center gap-3">
+          <label htmlFor="photo-upload" className="px-3 py-2 bg-cycle-500 hover:bg-cycle-700 text-white rounded cursor-pointer">Upload Photo</label>
+          <input id="photo-upload" type="file" accept="image/*" onChange={handleFile} className="hidden" />
+          {preview && <img src={preview} alt="preview" className="h-24 object-contain rounded" />}
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-        <input value={item} onChange={(e) => setItem(e.target.value)} placeholder="Item name" className="p-2 border rounded" />
-        <input value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="Amount (number)" type="number" className="p-2 border rounded" />
-        <input value={notes} onChange={(e) => setNotes(e.target.value)} placeholder="Notes" className="p-2 border rounded" />
+  <input value={item} onChange={(e) => setItem(e.target.value)} placeholder="Item name" className="p-2 border rounded border-cycle-100" />
+  <input value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="Amount (number)" type="number" className="p-2 border rounded border-cycle-100" />
+  <input value={notes} onChange={(e) => setNotes(e.target.value)} placeholder="Notes" className="p-2 border rounded border-cycle-100" />
       </div>
 
       <div className="mt-3 text-right">
-        <button onClick={submit} className="px-4 py-2 bg-green-600 text-white rounded">Post</button>
+  <button onClick={submit} className="px-4 py-2 bg-cycle-500 hover:bg-cycle-700 text-white rounded">Post</button>
       </div>
     </div>
   )

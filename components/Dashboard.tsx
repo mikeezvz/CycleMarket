@@ -31,9 +31,9 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-transparent">
       <Header points={128} />
-      <div className="max-w-5xl mx-auto p-4">
+  <div className="max-w-5xl mx-auto p-4 bg-white/80 backdrop-blur-sm rounded-md ring-1 ring-cycle-100">
         <section className="mb-6">
           <NewPostForm onCreate={addPost} />
         </section>
