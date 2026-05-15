@@ -10,29 +10,34 @@ type Post = {
   item: string
   amount: number
   notes: string
+  status: 'Verified' | 'In verification' | 'Unapproved'
   // image preview URL (optional, runtime only)
   image?: string | null
+  // points earned when verified (optional)
+  pointsEarned?: number
 }
 
 const initialPosts: Post[] = [
-  { id: 'CM10304', item: 'PVC Pipe', amount: 2, notes: 'Slightly used' },
-  { id: 'CM10305', item: 'PVC Sheet', amount: 1, notes: 'Good condition' },
-  { id: 'CM10306', item: 'PVC Connector', amount: 5, notes: 'Sealed glue' },
+  { id: 'CM10304', item: 'PVC Pipe', amount: 2, notes: 'Slightly used', status: 'Verified', pointsEarned: 25 },
+  { id: 'CM10305', item: 'PVC Sheet', amount: 1, notes: 'Good condition', status: 'In verification' },
+  { id: 'CM10306', item: 'PVC Connector', amount: 5, notes: 'Sealed glue', status: 'Unapproved' },
 ]
 
 export default function Dashboard() {
   const [posts, setPosts] = useState<Post[]>(initialPosts)
 
-  function addPost(payload: Omit<Post, 'id'>) {
+  function addPost(payload: { item: string; amount: number; notes: string; image?: string | null }) {
     // create a simple unique post id for prototype: CM + timestamp
     const id = 'CM' + String(Date.now()).slice(-6)
-    const newPost: Post = { id, ...payload }
+    const newPost: Post = { id, ...payload, status: 'In verification' }
     setPosts((s) => [newPost, ...s])
   }
 
+  const totalPoints = posts.reduce((s, p) => s + (p.pointsEarned ?? 0), 0)
+
   return (
     <div className="min-h-screen bg-transparent">
-      <Header points={128} />
+      <Header points={totalPoints} />
   <div className="max-w-5xl mx-auto p-4 bg-white/80 backdrop-blur-sm rounded-md ring-1 ring-cycle-100">
         <section className="mb-6">
           <NewPostForm onCreate={addPost} />
